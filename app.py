@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session, redirect, url_for
 from owlready2 import get_ontology
 import random
 
-app = Flask(name)
+app = Flask(__name__)
 app.secret_key = "mysecretkey123" 
 
 onto = get_ontology("CapitalsTutor.owl").load()
@@ -84,5 +84,5 @@ def quiz():
     return render_template("quiz.html", country=country)
 
 
-if name == "main":
+if __name__ == "__main__":
     app.run(debug=True)
