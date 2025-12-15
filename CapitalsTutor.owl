@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/capitalsTutor#"
+     xml:base="http://example.org/capitalsTutor"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<owl:Ontology rdf:about="http://example.org/capitalsTutor"/>
+
+<!-- Classes -->
+<owl:Class rdf:about="#GeoEntity"/>
+<owl:Class rdf:about="#Country">
+    <rdfs:subClassOf rdf:resource="#GeoEntity"/>
+</owl:Class>
+<owl:Class rdf:about="#AfricanCountry">
+    <rdfs:subClassOf rdf:resource="#Country"/>
+</owl:Class>
+<owl:Class rdf:about="#EuropeanCountry">
+    <rdfs:subClassOf rdf:resource="#Country"/>
+</owl:Class>
+<owl:Class rdf:about="#AsianCountry">
+    <rdfs:subClassOf rdf:resource="#Country"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Capital">
+    <rdfs:subClassOf rdf:resource="#GeoEntity"/>
+</owl:Class>
+<owl:Class rdf:about="#AfricanCapital">
+    <rdfs:subClassOf rdf:resource="#Capital"/>
+</owl:Class>
+<owl:Class rdf:about="#EuropeanCapital">
+    <rdfs:subClassOf rdf:resource="#Capital"/>
+</owl:Class>
+<owl:Class rdf:about="#AsianCapital">
+    <rdfs:subClassOf rdf:resource="#Capital"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Continent">
+    <rdfs:subClassOf rdf:resource="#GeoEntity"/>
+</owl:Class>
+
+<!-- Object Properties -->
+<owl:ObjectProperty rdf:about="#hasCapital">
+    <rdfs:domain rdf:resource="#Country"/>
+    <rdfs:range rdf:resource="#Capital"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#locatedInContinent">
+    <rdfs:domain rdf:resource="#Country"/>
+    <rdfs:range rdf:resource="#Continent"/>
+</owl:ObjectProperty>
+
+<!-- Individuals: Continents -->
+<owl:NamedIndividual rdf:about="#Africa">
+    <rdf:type rdf:resource="#Continent"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Europe">
+    <rdf:type rdf:resource="#Continent"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Asia">
+    <rdf:type rdf:resource="#Continent"/>
+</owl:NamedIndividual>
+
+<!-- Countries + Capitals (with links) -->
+
+<!-- Kenya -->
+<owl:NamedIndividual rdf:about="#Kenya">
+    <rdf:type rdf:resource="#AfricanCountry"/>
+    <locatedInContinent rdf:resource="#Africa"/>
+    <hasCapital rdf:resource="#Nairobi"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Nairobi">
+    <rdf:type rdf:resource="#AfricanCapital"/>
+</owl:NamedIndividual>
+
+<!-- France -->
+<owl:NamedIndividual rdf:about="#France">
+    <rdf:type rdf:resource="#EuropeanCountry"/>
+    <locatedInContinent rdf:resource="#Europe"/>
+    <hasCapital rdf:resource="#Paris"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Paris">
+    <rdf:type rdf:resource="#EuropeanCapital"/>
+</owl:NamedIndividual>
+
+<!-- Japan -->
+<owl:NamedIndividual rdf:about="#Japan">
+    <rdf:type rdf:resource="#AsianCountry"/>
+    <locatedInContinent rdf:resource="#Asia"/>
+    <hasCapital rdf:resource="#Tokyo"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Tokyo">
+    <rdf:type rdf:resource="#AsianCapital"/>
+</owl:NamedIndividual>
+
+</rdf:RDF>

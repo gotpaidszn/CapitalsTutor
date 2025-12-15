@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CapitalsTutor ITS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+
+<div class="container text-center mt-5">
+
+    <h1 class="display-4 fw-bold text-primary">🌍 CapitalsTutor ITS</h1>
+    <p class="lead">Learn and master the capitals of the world!</p>
+
+    {% if finished %}
+        <div class="alert alert-success mt-4">
+            <h3>🎉 Quiz Completed!</h3>
+            <p>Your final score: <strong>{{ score }} / {{ total }}</strong></p>
+        </div>
+
+        <a class="btn btn-primary btn-lg" href="{{ url_for('index') }}">Restart</a>
+
+    {% else %}
+        <p class="mt-4">There are <strong>{{ total }}</strong> country–capital study items available.</p>
+
+        <div class="mt-4">
+            <a class="btn btn-info btn-lg me-3" href="{{ url_for('learn') }}">📘 Learn the Capitals</a>
+            <a class="btn btn-success btn-lg" href="{{ url_for('quiz') }}">📝 Start Quiz</a>
+        </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
